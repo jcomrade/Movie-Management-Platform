@@ -76,7 +76,7 @@ export default function MovieCreate() {
                     </div>
                     <div className="flex flex-col gap-y-2">
                         <label className="font-semibold text-2xl">Select Movie (.mp4)</label>
-                        <input name="original_file" onChange={(e) => handleFileOnChange(e, setFormsInput, setMovieFormError)} value={formsInput.original_file} type="file" className="w-full text-center" disabled={isSubmitting.form} />
+                        <input name="original_file" accept="video/mp4" onChange={(e) => handleFileOnChange(e, setFormsInput, setMovieFormError)} value={formsInput.original_file} type="file" className="w-full text-center" disabled={isSubmitting.form} />
                         {error.original_file && <RequiredFieldError />}
                     </div>
                     <div className="flex flex-col gap-y-2">
