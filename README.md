@@ -1,5 +1,7 @@
 # Movie Mangement Software
 
+#Note: Pls upload mp4 only
+
 ## App Presentation
 - https://drive.google.com/file/d/1DJb31sQWPVq-m8ri45iyhlt4c5-HO2qf/view?usp=sharing
 
@@ -27,7 +29,7 @@
 
 ## Potential bugs
 - Huge file uploads
-- Non-Video Upload
+- Non-Mp4 Video Upload
 
 ## Potential Imporvements
 - Login / Signup Error Messages
