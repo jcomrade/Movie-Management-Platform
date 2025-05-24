@@ -1,6 +1,6 @@
 # Movie Mangement Software
 
-#Note: Pls upload mp4 only
+Note: Pls upload mp4 only
 
 ## App Presentation
 - https://drive.google.com/file/d/1DJb31sQWPVq-m8ri45iyhlt4c5-HO2qf/view?usp=sharing
