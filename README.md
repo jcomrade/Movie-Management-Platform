@@ -7,6 +7,7 @@ Note: Pls upload mp4 only
 
 ## Front-end Tech Stack
 - React/NextJS App Router
+- React Query
 - TailwindCSS
 - Typescript
 - Axios
