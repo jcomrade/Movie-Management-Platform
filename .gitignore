@@ -65,5 +65,9 @@ env/
 *.key
 *.pem
 
-/media/
-/thumbnails
+tvStartup/media/thumbnails/
+tvStartup/media/thumbnails/*
+tvStartup/media/videos/
+tvStartup/media/videos/*
+tvStartup/media/
+tvStartup/media/*
