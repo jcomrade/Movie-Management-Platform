@@ -26,6 +26,7 @@ export async function GET(
 
     return NextResponse.json(res.data);
   } catch (error: any) {
+    console.error(error)
     return NextResponse.json({ error: "Bad Request" }, { status: 400 });
   }
 }
@@ -39,7 +40,6 @@ export async function PUT(
   const formData = await req.formData();
   const { movieID } = params;
 
-  // Validate required fields
   if (
     !formData.get("original_file") ||
     !formData.get("title") ||
@@ -52,7 +52,6 @@ export async function PUT(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Append required fields
   const formRequestData = new FormData();
   formRequestData.append("original_file", formData.get("original_file") as Blob);
   formRequestData.append("video_file", formData.get("original_file") as Blob);
@@ -67,13 +66,13 @@ export async function PUT(
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
-          // Do NOT set Content-Type — axios will set multipart/form-data with boundary automatically
         },
       }
     );
 
     return NextResponse.json({ movieList: res.data });
   } catch (error: any) {
+    console.error(error)
     return NextResponse.json({ error: "Bad Request" }, { status: 400 });
   }
 }
@@ -99,6 +98,7 @@ export async function DELETE(
 
     return NextResponse.json({ message: "Movie Deleted" }, { status: 200 });
   } catch (error: any) {
+    console.error(error)
     return NextResponse.json({ error: "Bad Request" }, { status: 400 });
   }
 }

@@ -1,0 +1,54 @@
+version: "3.3"
+
+services:
+  backend:
+    build: ./tvStartup
+    container_name: backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    depends_on:
+      - redis
+    command: >
+      sh -c "python manage.py makemigrations &&
+             python manage.py migrate &&
+             gunicorn tvStartup.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - db-data:/app/db
+      - ./media:/app/media
+    environment:
+      - PUBLIC_BACKEND_URL=http://localhost:8000
+
+  celery:
+    build: ./tvStartup
+    container_name: celery
+    command: celery -A tvStartup worker --loglevel=info
+    depends_on:
+      - backend
+      - redis
+    restart: unless-stopped
+    volumes:
+      - db-data:/app/db
+      - ./media:/app/media
+
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_APP_URL=http://localhost:3000
+      - API_BASE_URL=http://backend:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  db-data:

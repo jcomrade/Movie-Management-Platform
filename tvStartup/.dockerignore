@@ -1,0 +1,93 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Django specific
+*.log
+*.pot
+*.pyc
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.cache
+.pytest_cache/
+
+# Environment files
+.env
+.env.*
+
+# Docker stuff
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.Python
+
+# Git
+.git/
+.gitignore
+
+# Node modules (if using npm/webpack in Django)
+node_modules/
+
+# System files
+*.DS_Store
+*.swp
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Django specific
+*.log
+*.pot
+*.pyc
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.cache
+.pytest_cache/
+
+# Environment files
+.env
+.env.*
+
+# Docker stuff
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.Python
+
+# Git
+.git/
+.gitignore
+
+# Node modules (if using npm/webpack in Django)
+node_modules/
+
+# System files
+*.DS_Store
+*.swp

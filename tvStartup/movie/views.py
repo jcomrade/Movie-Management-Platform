@@ -60,6 +60,12 @@ class MovieDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MovieItem.objects.all()
     serializer_class = MovieItemSerialzer
     permission_classes = [IsOwnerOrReadOnly]
+    
+    def perform_update(self, serializer):
+        video = serializer.save()
+        video.status = 'pending'
+        video.save()
+        process_video_task.delay(video.id)
 
 class RegisterUserView(generics.CreateAPIView):
     queryset = User.objects.all()

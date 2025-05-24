@@ -20,19 +20,21 @@ export default function Login() {
                     userMoviesList?.movieList?.map((movie: MovieDetails) => {
 
                         return (
-                            <div key={movie.id} className="rounded-lg bg-gradient-to-r from-slate-500 to-slate-800 grid grid-rows-[70%_30%] h-96 text-white">
-                                <div>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={movie.thumbnail || "https://picsum.photos/200"} className="rounded-t-lg w-full h-full object-cover" alt={"movie.id"}/>
-                                </div>
-                                <div className="flex flex-col justify-between px-2 pb-2">
-                                    <p className="font-semibold text-3xl py-1">{movie.title}</p>
-                                    <div className="flex justify-between pt-2 items-center">
-                                        <p>Uploaded By: {movie.user.username}</p>
-                                        <button onClick={() => router.push(`movie/${movie.id}`)} className="p-1 flex items-center rounded-full bg-[#E50914]">{<BiPlay size={40} />}</button>
+                            movie.status !== "pending"
+                                ? <div key={movie.id} className="rounded-lg bg-gradient-to-r from-slate-500 to-slate-800 grid grid-rows-[70%_30%] h-96 text-white">
+                                    <div>
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src={movie.thumbnail || "https://picsum.photos/200"} className="rounded-t-lg w-full h-full object-cover" alt={"movie.id"} />
+                                    </div>
+                                    <div className="flex flex-col justify-between px-2 pb-2">
+                                        <p className="font-semibold text-3xl py-1">{movie.title}</p>
+                                        <div className="flex justify-between pt-2 items-center">
+                                            <p>Uploaded By: {movie.user.username}</p>
+                                            <button onClick={() => router.push(`movie/${movie.id}`)} className="p-1 flex items-center rounded-full bg-[#E50914]">{<BiPlay size={40} />}</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                : <Skeleton key={movie.id} className="rounded-lg bg-gradient-to-r from-slate-500 to-slate-800 grid grid-rows-[70%_30%] h-96 text-white" />
                         )
                     })
                 }

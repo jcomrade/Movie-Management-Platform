@@ -37,12 +37,15 @@ def process_video_task(video_id):
     
     thumb_cmd = [
         'ffmpeg',
-        '-ss', '00:00:05',  # seek to 5 seconds
+        '-ss', '00:00:05',
         '-i', video_path,
         '-frames:v', '1',
-        '-q:v', '2',  # quality level (1-31, lower is better)
-        thumbnail_path
+        '-q:v', '2',
+        '-update', '1',
+        '-y',  # <-- add this flag to overwrite without asking
+        thumbnail_path,
     ]
+
     subprocess.run(thumb_cmd, check=True)
 
     video.hls_playlist.name = hls_output_path.replace(settings.MEDIA_ROOT + '/', '')

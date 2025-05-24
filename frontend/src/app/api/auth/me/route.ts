@@ -21,7 +21,7 @@ export async function GET() {
     const user = res.data;
     return NextResponse.json(user);
     
-  } catch (error: any) {
+  } catch (error:any) {
     console.error("Token validation error:", error?.response?.data || error.message);
     return NextResponse.json({ error: "Invalid or expired token" }, { status: 401 });
   }

@@ -24,6 +24,7 @@ export async function GET() {
 
     return NextResponse.json({ movieList: movies });
   } catch (error: any) {
+    console.error(error)
     return NextResponse.json({ error: 'Bad Request' }, { status: 400 });
   }
 }
@@ -62,6 +63,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ movieList: movies });
   } catch (error: any) {
+    console.error(error)
     return NextResponse.json({ error: 'Bad Request' }, { status: 400 });
   }
 }
